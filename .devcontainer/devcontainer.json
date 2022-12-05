@@ -1,0 +1,25 @@
+{
+	"name": "sam-helloworld-for-typescript",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"workspaceFolder": "${localWorkspaceFolder}",
+	"remoteEnv": {
+        "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+	},
+	"mounts": [
+		"source=${localEnv:HOME}/.aws,target=/home/vscode/.aws,type=bind",
+		"source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
+		"source=${localWorkspaceFolder},target=${localWorkspaceFolder},type=bind"
+	],
+	"extensions": [
+		"yzhang.markdown-all-in-one",
+		"redhat.vscode-yaml",
+		"amazonwebservices.aws-toolkit-vscode",
+		"aws-scripting-guy.cform",
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode"
+	],
+	"postCreateCommand": "sudo chown vscode /var/run/docker.sock",
+	"remoteUser": "vscode"
+}
